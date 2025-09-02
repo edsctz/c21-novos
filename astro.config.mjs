@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://squaredesignresidence.com.br',
+  site: 'https://novos.c21alpha.com.br',
   integrations: [
     react(),
     tailwind({
@@ -34,6 +34,11 @@ export default defineConfig({
             'react-vendor': ['react', 'react-dom']
           }
         }
+      }
+    },
+    css: {
+      postcss: {
+        plugins: []
       }
     }
   }
