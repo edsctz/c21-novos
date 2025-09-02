@@ -148,7 +148,7 @@ const LeadFormSticky = () => {
           {/* Form Title */}
           <div className="text-center lg:text-left">
             <h3 className="text-lg font-bold text-relentless-gold mb-1">
-              Receba tabela de preços e plantas
+              Receba preços e agende uma visita
             </h3>
             <p className="text-sm text-gray-300">
               Condições especiais de pré-lançamento
