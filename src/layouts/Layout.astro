@@ -1,0 +1,123 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  gtmId?: string;
+}
+
+const { 
+  title, 
+  description = "Empreendimentos imobiliários premium com Century 21 Alpha. Apartamentos de alto padrão em Alphaville e região.",
+  canonical,
+  ogImage = "/og-image.jpg",
+  noindex = false,
+  gtmId = "GTM-NKZQXB9J"
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title.includes('Century 21') ? title : `${title} | Century 21 Alpha`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Google Tag Manager -->
+    {gtmId && (
+      <script define:vars={{ gtmId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmId);
+      </script>
+    )}
+    <!-- End Google Tag Manager -->
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Century 21 Alpha" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["RealEstateAgent", "LocalBusiness"],
+      "name": "Century 21 Alpha",
+      "description": "Empreendimentos imobiliários premium em Alphaville e região",
+      "url": "https://novos.c21alpha.com.br",
+      "telephone": "+55-11-99999-9999",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alphaville",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    {gtmId && (
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    )}
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <slot />
+    
+    <!-- UTM Capture -->
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmData = {};
+      
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+        if (urlParams.get(param)) {
+          utmData[param] = urlParams.get(param);
+        }
+      });
+      
+      if (Object.keys(utmData).length > 0) {
+        localStorage.setItem('utmData', JSON.stringify(utmData));
+      }
+    </script>
+  </body>
+</html>

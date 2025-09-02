@@ -1,0 +1,500 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import LeadFormSticky from '../components/LeadFormSticky.jsx';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Galeria de Fotos - Square Design Residence Alphaville | Century 21 Alpha"
+  description="Veja as fotos do Square Design Residence Alphaville. Apartamentos de 3 suítes, área de lazer completa com raia olímpica, coworking e muito mais."
+>
+  <!-- Header Navigation -->
+  <Header />
+  
+  <!-- Gallery Section -->
+  <section class="py-16 bg-digital-black">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Galeria de <span class="text-relentless-gold">Fotos</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Conheça cada detalhe do Square Design Residence Alphaville
+        </p>
+      </div>
+
+      <!-- Photo Gallery -->
+      <div id="galeria" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Gallery Images -->
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Living integrado com varanda gourmet - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Suíte master com closet - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Cozinha gourmet integrada - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Raia olímpica de 25m - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Fitness center completo - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Coworking moderno - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Fachada moderna Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Vista noturna da fachada - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Entrada principal e portaria - Square Design Residence"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Vista aérea de Alphaville - Localização privilegiada"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Iguatemi Alphaville próximo ao empreendimento"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+          <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Centros empresariais de Alphaville"
+            class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Screen Modal -->
+  <div id="fullscreen-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden">
+    <!-- Top Bar with Close Button and Counter -->
+    <div class="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-black/80 to-transparent p-4">
+      <div class="flex justify-between items-center">
+        <!-- Image Counter -->
+        <div class="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 text-white font-medium">
+          <span id="current-image">1</span> / <span id="total-images">12</span>
+        </div>
+        
+        <!-- Close Button -->
+        <button 
+          id="close-modal" 
+          class="bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-12 h-12 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300"
+          aria-label="Fechar imagem"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Image Container -->
+    <div class="absolute inset-0 flex items-center justify-center p-4 pt-20 pb-16">
+      <!-- Previous Button -->
+      <button 
+        id="prev-image" 
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-14 h-14 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300 z-10"
+        aria-label="Imagem anterior"
+      >
+        ‹
+      </button>
+      
+      <!-- Full-Screen Image -->
+      <img 
+        id="fullscreen-image" 
+        src="" 
+        alt="" 
+        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+      />
+      
+      <!-- Next Button -->
+      <button 
+        id="next-image" 
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-14 h-14 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300 z-10"
+        aria-label="Próxima imagem"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- Bottom Bar with Image Description -->
+    <div class="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/80 to-transparent p-4">
+      <div class="text-center">
+        <p id="image-description" class="text-white text-lg font-medium bg-black/40 backdrop-blur-sm rounded-lg px-4 py-2 inline-block max-w-4xl">
+          <!-- Image alt text will be displayed here -->
+        </p>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Hints -->
+    <div class="absolute inset-x-0 bottom-20 text-center text-white/60 text-sm md:hidden">
+      <p class="bg-black/40 backdrop-blur-sm rounded-lg px-3 py-1 inline-block">
+        Toque nas setas ou deslize para navegar
+      </p>
+    </div>
+  </div>
+
+  <!-- Lead Form Section (Same as Home Page) -->
+  <section class="form-section" id="lead-form">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Receba <span class="text-gold">Tabela de Preços</span> e Plantas
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Condições especiais de pré-lançamento. Preencha o formulário e receba todas as informações.
+        </p>
+        
+        <div class="form-container">
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="nome" class="form-label">Nome Completo *</label>
+              <input 
+                type="text" 
+                id="nome" 
+                name="nome" 
+                required
+                class="form-input"
+                placeholder="Seu nome completo"
+              />
+            </div>
+            
+            <div>
+              <label for="email" class="form-label">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="form-input"
+                placeholder="seu@email.com"
+              />
+            </div>
+            
+            <div>
+              <label for="telefone" class="form-label">WhatsApp *</label>
+              <input 
+                type="tel" 
+                id="telefone" 
+                name="telefone" 
+                required
+                class="form-input"
+                placeholder="(11) 99999-9999"
+              />
+            </div>
+            
+            <div>
+              <label for="interesse" class="form-label">Interesse</label>
+              <select 
+                id="interesse" 
+                name="interesse"
+                class="form-input"
+              >
+                <option value="comprar">Comprar para morar</option>
+                <option value="investir">Investir</option>
+                <option value="informacoes">Apenas informações</option>
+              </select>
+            </div>
+            
+            <div class="md:col-span-2">
+              <label for="mensagem" class="form-label">Mensagem (opcional)</label>
+              <textarea 
+                id="mensagem" 
+                name="mensagem" 
+                rows="4"
+                class="form-input resize-none"
+                placeholder="Conte-nos mais sobre seu interesse..."
+              ></textarea>
+            </div>
+            
+            <div class="md:col-span-2">
+              <button 
+                type="submit"
+                class="form-button"
+              >
+                📋 Receber Tabela de Preços e Plantas
+              </button>
+            </div>
+          </form>
+          
+          <div class="mt-6 text-center">
+            <p class="text-sm text-gray-400">
+              Ao enviar, você concorda com nossa 
+              <a href="https://www.c21alpha.com.br/politica-de-privacidade" class="text-gold hover:underline">Política de Privacidade</a>
+              e autoriza o contato via WhatsApp, email e telefone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-16 bg-gradient-gold">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-digital-black mb-4">
+        Agende Sua Visita
+      </h2>
+      <p class="text-xl text-digital-black mb-8 max-w-3xl mx-auto">
+        Venha conhecer pessoalmente todos os detalhes que fazem do Square Design Residence 
+        <strong>o melhor investimento em Alphaville.</strong>
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="https://wa.me/5511947176122?text=Olá! Vi a galeria de fotos e quero agendar uma visita ao Square Design Residence Alphaville."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
+        >
+          📱 Agendar Visita via WhatsApp
+        </a>
+        
+        <a 
+          href="tel:+5511947176122"
+          class="bg-transparent border-2 border-digital-black text-digital-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-digital-black hover:text-relentless-gold transition-all duration-300 hover:scale-105"
+        >
+          📞 Ligar Agora
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sticky Lead Form (Mobile) -->
+  <LeadFormSticky client:load />
+  
+  <!-- Footer -->
+  <Footer />
+</Layout>
+
+<script>
+  // Full-Screen Gallery Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const modal = document.getElementById('fullscreen-modal');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    const closeModal = document.getElementById('close-modal');
+    const prevButton = document.getElementById('prev-image');
+    const nextButton = document.getElementById('next-image');
+    const currentImageSpan = document.getElementById('current-image');
+    const totalImagesSpan = document.getElementById('total-images');
+    const imageDescription = document.getElementById('image-description');
+    
+    let currentImageIndex = 0;
+    const images = Array.from(galleryItems);
+    
+    // Set total images count
+    totalImagesSpan.textContent = images.length;
+    
+    // Open modal when clicking on image
+    images.forEach((img, index) => {
+      img.addEventListener('click', function() {
+        currentImageIndex = index;
+        showImage(currentImageIndex);
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+    
+    // Close modal
+    function closeModalFunction() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    closeModal.addEventListener('click', closeModalFunction);
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModalFunction();
+      }
+    });
+    
+    // Show specific image
+    function showImage(index) {
+      const img = images[index];
+      fullscreenImage.src = img.src.replace('w=800', 'w=1200'); // Higher resolution for full-screen
+      fullscreenImage.alt = img.alt;
+      imageDescription.textContent = img.alt;
+      currentImageSpan.textContent = index + 1;
+    }
+    
+    // Previous image
+    prevButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
+      showImage(currentImageIndex);
+    });
+    
+    // Next image
+    nextButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
+      showImage(currentImageIndex);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('hidden')) {
+        switch(e.key) {
+          case 'Escape':
+            closeModalFunction();
+            break;
+          case 'ArrowLeft':
+            prevButton.click();
+            break;
+          case 'ArrowRight':
+            nextButton.click();
+            break;
+        }
+      }
+    });
+
+    // Touch/Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    modal.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next image
+          nextButton.click();
+        } else {
+          // Swipe right - previous image
+          prevButton.click();
+        }
+      }
+    }
+    
+    // Form submission handling (same as home page)
+    const form = document.querySelector('#lead-form form');
+    
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Add UTM data
+        const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
+        const submitData = {
+          ...data,
+          ...utmData,
+          timestamp: new Date().toISOString(),
+          page_url: window.location.href,
+          source_page: 'galeria'
+        };
+        
+        // Track form submission
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'generate_lead', {
+            event_category: 'Lead Form',
+            event_label: 'Gallery Page Form Submission',
+            value: 1
+          });
+        }
+        
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Square Design Residence - Gallery',
+            content_category: 'Real Estate Lead'
+          });
+        }
+        
+        try {
+          alert('Obrigado! Em breve entraremos em contato com todas as informações.');
+          form.reset();
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Erro ao enviar formulário. Tente novamente ou entre em contato via WhatsApp.');
+        }
+      });
+    }
+  });
+</script>
+</Layout>

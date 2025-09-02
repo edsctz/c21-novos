@@ -1,0 +1,51 @@
+import type { PropertyConfig } from '../../config/properties';
+
+export const config: PropertyConfig = {
+  id: '{{PROPERTY_ID}}',
+  name: '{{PROPERTY_NAME}}',
+  fullName: '{{PROPERTY_FULL_NAME}}',
+  description: '{{PROPERTY_DESCRIPTION}}',
+  location: '{{PROPERTY_LOCATION}}',
+  developer: 'Century 21 Alpha',
+  specs: {
+    bedrooms: '{{BEDROOMS}}',
+    area: '{{AREA}}',
+    parking: '{{PARKING}}',
+    units: '{{UNITS}}'
+  },
+  contact: {
+    phone: '+5511999999999',
+    whatsapp: '5511999999999',
+    email: 'contato@c21alpha.com.br'
+  },
+  images: {
+    hero: '{{HERO_IMAGE}}',
+    gallery: [
+      '{{GALLERY_IMAGE_1}}',
+      '{{GALLERY_IMAGE_2}}'
+    ],
+    location: '{{LOCATION_IMAGE}}'
+  },
+  features: [
+    '{{FEATURE_1}}',
+    '{{FEATURE_2}}',
+    '{{FEATURE_3}}',
+    '{{FEATURE_4}}',
+    '{{FEATURE_5}}',
+    '{{FEATURE_6}}'
+  ],
+  amenities: [
+    '{{AMENITY_1}}',
+    '{{AMENITY_2}}',
+    '{{AMENITY_3}}',
+    '{{AMENITY_4}}',
+    '{{AMENITY_5}}',
+    '{{AMENITY_6}}'
+  ],
+  gtmId: '{{GTM_ID}}',
+  seo: {
+    title: '{{SEO_TITLE}}',
+    description: '{{SEO_DESCRIPTION}}',
+    keywords: [{{SEO_KEYWORDS}}]
+  }
+};

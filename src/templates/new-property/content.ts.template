@@ -1,0 +1,59 @@
+// Property-specific content for {{PROPERTY_NAME}}
+export const content = {
+  hero: {
+    headline: '{{PROPERTY_NAME}}',
+    subheadline: '{{PROPERTY_LOCATION_SHORT}}',
+    description: '{{HERO_DESCRIPTION}}',
+    cta: 'Receber Tabela de Preços'
+  },
+  
+  specs: {
+    title: 'Especificações do Empreendimento',
+    items: [
+      {
+        icon: '🏠',
+        title: '{{BEDROOMS}}',
+        description: '{{BEDROOMS_DESCRIPTION}}'
+      },
+      {
+        icon: '📐',
+        title: '{{AREA}}',
+        description: '{{AREA_DESCRIPTION}}'
+      },
+      {
+        icon: '🚗',
+        title: '{{PARKING}}',
+        description: '{{PARKING_DESCRIPTION}}'
+      },
+      {
+        icon: '🏢',
+        title: '{{UNITS}}',
+        description: '{{UNITS_DESCRIPTION}}'
+      }
+    ]
+  },
+  
+  location: {
+    title: 'Localização Privilegiada',
+    description: '{{LOCATION_DESCRIPTION}}',
+    proximities: [
+      '{{PROXIMITY_1}}',
+      '{{PROXIMITY_2}}',
+      '{{PROXIMITY_3}}',
+      '{{PROXIMITY_4}}',
+      '{{PROXIMITY_5}}'
+    ]
+  },
+  
+  form: {
+    title: 'Receba Tabela de Preços e Plantas',
+    description: 'Condições especiais de pré-lançamento. Preencha o formulário e receba todas as informações.',
+    cta: '📋 Receber Tabela de Preços e Plantas'
+  },
+  
+  finalCta: {
+    title: 'Não Perca Esta Oportunidade',
+    description: 'Condições especiais de pré-lançamento por tempo limitado. Agende sua visita e garante o melhor apartamento.',
+    whatsappText: 'Olá! Quero agendar uma visita ao {{PROPERTY_NAME}}.'
+  }
+};

@@ -1,0 +1,7 @@
+---
+import PropertyPage from '../../components/PropertyPage.astro';
+import { config } from '../../properties/{{PROPERTY_ID}}/config';
+import { content } from '../../properties/{{PROPERTY_ID}}/content';
+---
+
+<PropertyPage config={config} content={content} />

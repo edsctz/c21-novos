@@ -1,0 +1,72 @@
+---
+import type { PropertyConfig } from '../../config/properties';
+
+interface Props {
+  config: PropertyConfig;
+  content: any;
+}
+
+const { config, content } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="hero-background">
+    <img 
+      src={config.images.hero}
+      alt={`${config.fullName} - Fachada do empreendimento`}
+      class="hero-image"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="hero-title">
+          {content.headline}
+          <span class="hero-subtitle">{content.subheadline}</span>
+        </h1>
+        
+        <p class="hero-description">
+          {content.description}
+        </p>
+        
+        <div class="hero-specs">
+          <div class="spec-item">
+            <span class="spec-value">{config.specs.bedrooms}</span>
+            <span class="spec-label">Suítes</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-value">{config.specs.area}</span>
+            <span class="spec-label">Área</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-value">{config.specs.parking}</span>
+            <span class="spec-label">Vagas</span>
+          </div>
+        </div>
+        
+        <div class="hero-ctas">
+          <a 
+            href="#lead-form"
+            class="cta-primary"
+          >
+            📋 {content.cta}
+          </a>
+          
+          <a 
+            href={`https://wa.me/${config.contact.whatsapp}?text=Olá! Quero mais informações sobre o ${config.name}.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-secondary"
+          >
+            📱 WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

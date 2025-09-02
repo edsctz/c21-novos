@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import CTAButtons from './CTAButtons.astro';
+---
+
+<section class="hero-section">
+  <!-- Background Image -->
+  <div class="hero-background">
+    <Image 
+      src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+      alt="Square Design Residence Alphaville - Fachada do empreendimento"
+      width={2340}
+      height={1560}
+      loading="eager"
+      decoding="async"
+      format="webp"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <!-- Main Headline -->
+        <h1 class="hero-title animate-fade-in">
+          <span class="block text-gold font-bold">3 suítes de 94 a 121m²</span>
+          <span class="block">no coração de Alphaville</span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="hero-subtitle animate-slide-up">
+          Lazer completo com raia olímpica de 25m, coworking e varanda gourmet. 
+          <strong class="text-gold">2 a 3 vagas de garagem.</strong>
+        </p>
+        
+        <!-- Feature Chips -->
+        <div class="chips-container animate-slide-up" style="animation-delay: 0.2s;">
+          <span class="chip">3 suítes</span>
+          <span class="chip">94–121m²</span>
+          <span class="chip">2–3 vagas</span>
+          <span class="chip">Raia 25m</span>
+          <span class="chip">Coworking</span>
+          <span class="chip">Alphaville</span>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="cta-container animate-slide-up" style="animation-delay: 0.4s;">
+          <CTAButtons />
+        </div>
+        
+        <!-- Social Proof -->
+        <div class="mt-8 animate-fade-in" style="animation-delay: 0.6s;">
+          <p class="text-sm text-gray-300 mb-2">
+            <span class="text-gold font-semibold">Alphaville</span>, região mais valorizada de Barueri
+          </p>
+          <p class="text-xs text-gray-400">
+            Condições especiais de pré-lançamento
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-inner">
+      <div class="scroll-indicator-dot"></div>
+    </div>
+  </div>
+</section>
