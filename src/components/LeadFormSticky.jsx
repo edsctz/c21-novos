@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 const LeadFormSticky = () => {
   const [formData, setFormData] = useState({
     nome: '',
-    whatsapp: '',
-    email: '',
-    interesse: 'comprar'
+    whatsapp: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -33,12 +32,6 @@ const LeadFormSticky = () => {
       newErrors.whatsapp = 'WhatsApp é obrigatório';
     } else if (!/^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(formData.whatsapp)) {
       newErrors.whatsapp = 'Formato inválido. Use: (11) 99999-9999';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email é obrigatório';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Email inválido';
     }
     
     setErrors(newErrors);
@@ -126,9 +119,7 @@ const LeadFormSticky = () => {
       // Reset form
       setFormData({
         nome: '',
-        whatsapp: '',
-        email: '',
-        interesse: 'comprar'
+        whatsapp: ''
       });
       
     } catch (error) {
@@ -139,25 +130,34 @@ const LeadFormSticky = () => {
     }
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || isClosed) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-obsessed-grey border-t-4 border-relentless-gold shadow-2xl transform transition-transform duration-300 ease-in-out">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+      <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-4">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-4">
+          {/* Close Button */}
+          <button
+            onClick={() => setIsClosed(true)}
+            className="absolute -top-1 right-0 sm:top-0 sm:right-2 text-gray-400 hover:text-white transition-colors duration-200 text-xl font-bold w-6 h-6 flex items-center justify-center"
+            aria-label="Fechar formulário"
+          >
+            ×
+          </button>
+          
           {/* Form Title */}
-          <div className="text-center lg:text-left">
-            <h3 className="text-lg font-bold text-relentless-gold mb-1">
+          <div className="text-center lg:text-left pr-6 sm:pr-0">
+            <h3 className="text-sm sm:text-lg font-bold text-relentless-gold mb-1">
               Receba preços e agende uma visita
             </h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-xs sm:text-sm text-gray-300">
               Condições especiais de pré-lançamento
             </p>
           </div>
           
           {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
-            <div className="flex flex-col sm:flex-row gap-2">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-1 sm:gap-2 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
               <div className="relative">
                 <input
                   type="text"
@@ -165,11 +165,11 @@ const LeadFormSticky = () => {
                   placeholder="Seu nome"
                   value={formData.nome}
                   onChange={handleInputChange}
-                  className={`form-input bg-white text-digital-black placeholder-gray-500 text-sm px-3 py-2 rounded w-full sm:w-32 ${errors.nome ? 'border-digital-highlight-red' : ''}`}
+                  className={`form-input bg-white text-digital-black placeholder-gray-500 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 rounded w-full sm:w-32 ${errors.nome ? 'border-digital-highlight-red' : ''}`}
                   required
                 />
                 {errors.nome && (
-                  <span className="absolute -bottom-5 left-0 text-xs text-digital-highlight-red">
+                  <span className="absolute -bottom-4 left-0 text-xs text-digital-highlight-red">
                     {errors.nome}
                   </span>
                 )}
@@ -182,49 +182,21 @@ const LeadFormSticky = () => {
                   placeholder="(11) 99999-9999"
                   value={formData.whatsapp}
                   onChange={handleInputChange}
-                  className={`form-input bg-white text-digital-black placeholder-gray-500 text-sm px-3 py-2 rounded w-full sm:w-36 ${errors.whatsapp ? 'border-digital-highlight-red' : ''}`}
+                  className={`form-input bg-white text-digital-black placeholder-gray-500 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 rounded w-full sm:w-36 ${errors.whatsapp ? 'border-digital-highlight-red' : ''}`}
                   required
                 />
                 {errors.whatsapp && (
-                  <span className="absolute -bottom-5 left-0 text-xs text-digital-highlight-red">
+                  <span className="absolute -bottom-4 left-0 text-xs text-digital-highlight-red">
                     {errors.whatsapp}
                   </span>
                 )}
               </div>
-              
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="seu@email.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={`form-input bg-white text-digital-black placeholder-gray-500 text-sm px-3 py-2 rounded w-full sm:w-40 ${errors.email ? 'border-digital-highlight-red' : ''}`}
-                  required
-                />
-                {errors.email && (
-                  <span className="absolute -bottom-5 left-0 text-xs text-digital-highlight-red">
-                    {errors.email}
-                  </span>
-                )}
-              </div>
-              
-              <select
-                name="interesse"
-                value={formData.interesse}
-                onChange={handleInputChange}
-                className="form-input bg-white text-digital-black text-sm px-3 py-2 rounded w-full sm:w-32"
-              >
-                <option value="comprar">Comprar</option>
-                <option value="investir">Investir</option>
-                <option value="informacoes">Informações</option>
-              </select>
             </div>
             
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary px-6 py-2 text-sm font-semibold rounded transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="btn-primary px-3 sm:px-6 py-1 sm:py-2 text-xs sm:text-sm font-semibold rounded transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               {isSubmitting ? 'Enviando...' : 'Enviar'}
             </button>
@@ -232,13 +204,13 @@ const LeadFormSticky = () => {
         </div>
         
         {/* Privacy Notice */}
-        <div className="mt-2 text-center">
+        <div className="mt-1 sm:mt-2 text-center">
           <p className="text-xs text-gray-400">
             Ao enviar, você concorda com nossa{' '}
             <a href="/politica-privacidade" className="text-relentless-gold hover:underline">
               Política de Privacidade
             </a>
-            {' '}e autoriza o contato via WhatsApp, email e telefone.
+            {' '}e autoriza o contato via WhatsApp e telefone.
           </p>
         </div>
       </div>
