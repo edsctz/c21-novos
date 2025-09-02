@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import LeadFormSticky from '../components/LeadFormSticky.jsx';
-import Footer from '../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import LeadFormSticky from '../../components/LeadFormSticky.jsx';
+import Footer from '../../components/Footer.astro';
 ---
 
 <Layout 
@@ -29,7 +29,8 @@ import Footer from '../components/Footer.astro';
         <div class="bg-gradient-to-br from-relentless-gold/20 to-digital-black rounded-3xl p-6 border-2 border-relentless-gold/30 shadow-2xl">
           <div class="overflow-hidden rounded-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              src="/images/squaredesign/compre-ganhe/oferta-banner.jpg"
+              onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'"
               alt="Oferta Especial - Square Design Residence Alphaville - Compre e Ganhe"
               class="w-full h-64 md:h-80 object-cover"
               loading="eager"
@@ -379,4 +380,3 @@ import Footer from '../components/Footer.astro';
     setInterval(updateCountdown, 60000);
   });
 </script>
-</Layout>

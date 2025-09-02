@@ -41,10 +41,10 @@ const Navigation = () => {
   }, [isOpen]);
 
   const navigationLinks = [
-    { href: '/', label: 'Sobre o Empreendimento' },
-    { href: '/galeria', label: 'Galeria de Fotos' },
-    { href: '/plantas', label: 'Plantas' },
-    { href: '/compre-ganhe', label: 'Compre e Ganhe', isHighlighted: true }
+    { href: '/squaredesign', label: 'Sobre o Empreendimento' },
+    { href: '/squaredesign/galeria', label: 'Galeria de Fotos' },
+    { href: '/squaredesign/plantas', label: 'Plantas' },
+    { href: '/squaredesign/compre-ganhe', label: 'Compre e Ganhe', isHighlighted: true }
   ];
 
   const handleLinkClick = (href) => {
