@@ -22,8 +22,8 @@ const {
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
         {title.split(' ').map((word, index) => 
           word === 'Preços' || word === 'Tabela' || word === 'Oferta' ? 
-            <span class="text-gold">{word}</span> : word + ' '
-        )}
+            <span class="text-gold">{word}</span> : word
+        ).join(' ')}
       </h2>
       <p class="text-xl text-gray-300 mb-8">
         {description}
