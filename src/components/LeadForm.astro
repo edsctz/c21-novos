@@ -78,14 +78,13 @@ const {
 </section>
 
 <script define:vars={{ formId, trackingLabel }}>
-  // Import CORS-compliant webhook utility
-  import { submitToWebhook } from '../utils/cors-webhook.js';
-  
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector(`#${formId} form`);
     
     form?.addEventListener('submit', async function(event) {
       event.preventDefault();
+      
+      console.log('📝 Form submission started for:', formId);
       
       // Get form data
       const formData = new FormData(event.target);
@@ -102,8 +101,10 @@ const {
         ...utmParameters
       };
       
+      console.log('📤 Sending payload:', payload);
+      
       try {
-        // Send data to webhook
+        // Send data to webhook using CORS-compliant method
         const response = await fetch('https://workflowwebhook.prospectz.com.br/webhook/lp-novos', {
           method: 'POST',
           headers: {
@@ -112,9 +113,10 @@ const {
           body: JSON.stringify(payload)
         });
         
+        console.log('📥 Response status:', response.status, response.statusText);
+        
         if (response.ok) {
-          // Show success message
-          document.getElementById('success-message')?.classList.remove('hidden');
+          // Success feedback
           form.reset();
           
           // Track successful submission
@@ -133,16 +135,13 @@ const {
             });
           }
           
+          console.log('✅ Form submitted successfully via CORS-compliant method');
           alert('Obrigado! Em breve entraremos em contato com todas as informações.');
         } else {
-          // Show error message
-          document.getElementById('error-message')?.classList.remove('hidden');
-          alert('Erro ao enviar formulário. Tente novamente ou entre em contato via WhatsApp.');
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
       } catch (error) {
-        console.error('Error submitting form:', error);
-        // Show error message
-        document.getElementById('error-message')?.classList.remove('hidden');
+        console.error('❌ Error submitting form:', error);
         alert('Erro ao enviar formulário. Tente novamente ou entre em contato via WhatsApp.');
       }
     });
