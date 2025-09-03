@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "src/pages/api/**/*.js": {
-      "runtime": "nodejs18"
-    }
-  },
-  "buildCommand": "npm run build"
-}

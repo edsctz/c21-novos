@@ -2,18 +2,12 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 export default defineConfig({
   site: 'https://novos.c21alpha.com.br',
-  output: 'hybrid',
-  adapter: vercel({
-    functionPerRoute: false,
-    edgeMiddleware: false,
-    imageService: true,
-    devImageService: 'sharp',
-    isr: false
-  }),
+  output: 'static',
+  adapter: vercel(),
   integrations: [
     react(),
     tailwind({

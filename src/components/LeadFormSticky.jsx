@@ -116,19 +116,23 @@ const LeadFormSticky = () => {
         });
       }
       
-      // Import fallback utility
-      const { submitWithFallback } = await import('/src/utils/webhook-fallback.js');
+      // Import direct webhook utility
+      const { submitFormData } = await import('/src/utils/direct-webhook.js');
       
-      // Use fallback submission method
-      const result = await submitWithFallback({
+      // Use direct submission method
+      const result = await submitFormData({
         nome: formData.nome,
         telefone: formData.whatsapp
-      }, propertyId);
+      }, {
+        propertyId: propertyId,
+        formType: 'sticky_form',
+        formId: 'sticky-form'
+      });
       
       if (result.success) {
         // Success feedback
         alert('Obrigado! Em breve entraremos em contato.');
-        console.log('Form submitted via:', result.method);
+        console.log('Form submitted successfully via direct method');
         
         // Reset form
         setFormData({
