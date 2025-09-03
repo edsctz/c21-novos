@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const LeadFormSticky = () => {
+const LeadFormSticky = ({ propertyId = 'sticky-form' }) => {
   const [formData, setFormData] = useState({
     nome: '',
     whatsapp: ''
@@ -87,7 +87,7 @@ const LeadFormSticky = () => {
       const payload = {
         nome: formData.nome,
         telefone: formData.whatsapp,
-        source: 'sticky-form',
+        source: propertyId,
         timestamp: new Date().toISOString(),
         ...utmParameters
       };

@@ -5,6 +5,7 @@ interface Props {
   buttonText?: string;
   formId?: string;
   trackingLabel?: string;
+  propertyId?: string;
 }
 
 const { 
@@ -12,7 +13,8 @@ const {
   description = "Condições especiais de pré-lançamento. Preencha o formulário e receba todas as informações.",
   buttonText = "Receber Informações Completas",
   formId = "lead-form",
-  trackingLabel = "Lead Form Submission"
+  trackingLabel = "Lead Form Submission",
+  propertyId = "lead-form"
 } = Astro.props;
 ---
 
@@ -77,7 +79,7 @@ const {
   </div>
 </section>
 
-<script define:vars={{ formId, trackingLabel }}>
+<script define:vars={{ formId, trackingLabel, propertyId }}>
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector(`#${formId} form`);
     
@@ -96,7 +98,7 @@ const {
       // Create payload
       const payload = {
         ...formEntries,
-        source: formId,
+        source: propertyId,
         timestamp: new Date().toISOString(),
         ...utmParameters
       };
