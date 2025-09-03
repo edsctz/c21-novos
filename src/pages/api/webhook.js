@@ -1,3 +1,5 @@
+export const prerender = false;
+
 export async function POST({ request }) {
   try {
     // Get the form data from the request
