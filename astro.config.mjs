@@ -7,7 +7,13 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   site: 'https://novos.c21alpha.com.br',
   output: 'hybrid',
-  adapter: vercel(),
+  adapter: vercel({
+    functionPerRoute: false,
+    edgeMiddleware: false,
+    imageService: true,
+    devImageService: 'sharp',
+    isr: false
+  }),
   integrations: [
     react(),
     tailwind({
