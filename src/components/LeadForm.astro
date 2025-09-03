@@ -16,16 +16,36 @@ const {
   trackingLabel = "Lead Form Submission",
   propertyId = "lead-form"
 } = Astro.props;
+
+// Process title to highlight specific words
+const processTitle = (titleText: string) => {
+  const words = titleText.split(' ');
+  return words.map((word, index) => {
+    const isHighlighted = word === 'Preços' || word === 'Tabela' || word === 'Oferta';
+    return {
+      word,
+      isHighlighted,
+      key: `word-${index}`
+    };
+  });
+};
+
+const titleWords = processTitle(title);
 ---
 
 <section class="form-section" id={formId}>
   <div class="container">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        {title.split(' ').map((word, index) => 
-          word === 'Preços' || word === 'Tabela' || word === 'Oferta' ? 
-            <span class="text-gold">{word}</span> : word
-        ).join(' ')}
+        {titleWords.map(({ word, isHighlighted, key }) => (
+          isHighlighted ? 
+            <span key={key} class="text-gold">{word}</span> : 
+            <span key={key}>{word}</span>
+        )).reduce((prev, curr, index) => [
+          ...prev,
+          index > 0 ? ' ' : '',
+          curr
+        ], [])}
       </h2>
       <p class="text-xl text-gray-300 mb-8">
         {description}
