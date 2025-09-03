@@ -130,7 +130,7 @@ const Navigation = () => {
               
               <div className="nav-mobile-cta">
                 <a
-                  href="https://wa.me/5511999999999?text=Olá! Quero receber informações sobre o Square Design Residence Alphaville."
+                  href="https://wa.me/5511990111592?text=Olá! Quero receber informações sobre o Square Design Residence Alphaville."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="nav-mobile-whatsapp"
@@ -140,7 +140,7 @@ const Navigation = () => {
                 </a>
                 
                 <a
-                  href="tel:+5511999999999"
+                  href="tel:+5511990111592"
                   className="nav-mobile-phone"
                   onClick={() => setIsOpen(false)}
                 >

@@ -211,8 +211,22 @@ img {
   width: 100%;
 }
 
+.cta-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media (min-width: 640px) {
   .cta-container {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .cta-buttons-wrapper {
     flex-direction: row;
     gap: 1rem;
   }
