@@ -80,116 +80,47 @@ const LeadFormSticky = () => {
     setIsSubmitting(true);
     
     try {
-      // Get property ID from URL path
-      const pathSegments = window.location.pathname.split('/').filter(segment => segment);
-      const propertyId = pathSegments.length > 0 ? pathSegments[0] : 'squaredesign';
+      // Get UTM parameters
+      const utmParameters = JSON.parse(localStorage.getItem('utmData') || '{}');
       
-      // Get UTM data from localStorage
-      const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
-      
-      const submitData = {
+      // Create payload following the exact pattern
+      const payload = {
         nome: formData.nome,
         telefone: formData.whatsapp,
-        ...utmData,
-        property_id: propertyId,
-        property_name: propertyId === 'squaredesign' ? 'Square Design Residence' : propertyId,
+        source: 'sticky-form',
         timestamp: new Date().toISOString(),
-        page_url: window.location.href,
-        user_agent: navigator.userAgent,
-        form_id: 'sticky-form',
-        form_type: 'sticky_form'
+        ...utmParameters
       };
       
-      // Track form submission
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', {
-          event_category: 'Lead Form',
-          event_label: 'Sticky Form Submission',
-          value: 1
-        });
-      }
+      // Send data to webhook
+      const response = await fetch('https://workflowwebhook.prospectz.com.br/webhook/lp-novos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
       
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
-          content_name: 'Square Design Residence',
-          content_category: 'Real Estate Lead'
-        });
-      }
-      
-      // Direct webhook submission function
-      const submitToWebhook = (formData, propertyId) => {
-        return new Promise((resolve, reject) => {
-          try {
-            // Get UTM data
-            const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
-            
-            // Prepare complete data
-            const submitData = {
-              nome: formData.nome,
-              telefone: formData.telefone,
-              property_id: propertyId,
-              property_name: propertyId === 'squaredesign' ? 'Square Design Residence' : propertyId,
-              property_full_name: propertyId === 'squaredesign' ? 'Square Design Residence Alphaville' : propertyId,
-              ...utmData,
-              form_type: 'sticky_form',
-              form_id: 'sticky-form',
-              timestamp: new Date().toISOString(),
-              page_url: window.location.href,
-              user_agent: navigator.userAgent,
-              referrer: document.referrer || '',
-              browser_language: navigator.language,
-              screen_resolution: `${screen.width}x${screen.height}`,
-              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-              submitted_via: 'direct_form'
-            };
-            
-            // Create hidden form
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://workflowwebhook.prospectz.com.br/webhook/lp-novos';
-            form.target = '_blank';
-            form.style.display = 'none';
-            
-            // Add all data as hidden inputs
-            Object.keys(submitData).forEach(key => {
-              const input = document.createElement('input');
-              input.type = 'hidden';
-              input.name = key;
-              input.value = String(submitData[key] || '');
-              form.appendChild(input);
-            });
-            
-            // Add to document and submit
-            document.body.appendChild(form);
-            form.submit();
-            
-            // Clean up and resolve
-            setTimeout(() => {
-              try {
-                document.body.removeChild(form);
-              } catch (e) {
-                // Form might already be removed
-              }
-              resolve({ success: true });
-            }, 1000);
-            
-          } catch (error) {
-            console.error('Direct webhook submission error:', error);
-            reject(error);
-          }
-        });
-      };
-      
-      // Submit the form
-      const result = await submitToWebhook({
-        nome: formData.nome,
-        telefone: formData.whatsapp
-      }, propertyId);
-      
-      if (result.success) {
+      if (response.ok) {
+        // Track successful submission
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'generate_lead', {
+            event_category: 'Lead Form',
+            event_label: 'Sticky Form Submission',
+            value: 1
+          });
+        }
+        
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'Square Design Residence',
+            content_category: 'Real Estate Lead'
+          });
+        }
+        
         // Success feedback
         alert('Obrigado! Em breve entraremos em contato.');
-        console.log('Form submitted successfully via direct method');
+        console.log('Form submitted successfully via CORS-compliant method');
         
         // Reset form
         setFormData({
@@ -197,7 +128,7 @@ const LeadFormSticky = () => {
           whatsapp: ''
         });
       } else {
-        throw new Error('Submission failed');
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
     } catch (error) {
