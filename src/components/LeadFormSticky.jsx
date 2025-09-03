@@ -116,18 +116,75 @@ const LeadFormSticky = () => {
         });
       }
       
-      // Import direct webhook utility
-      const { submitFormData } = await import('/src/utils/direct-webhook.js');
+      // Direct webhook submission function
+      const submitToWebhook = (formData, propertyId) => {
+        return new Promise((resolve, reject) => {
+          try {
+            // Get UTM data
+            const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
+            
+            // Prepare complete data
+            const submitData = {
+              nome: formData.nome,
+              telefone: formData.telefone,
+              property_id: propertyId,
+              property_name: propertyId === 'squaredesign' ? 'Square Design Residence' : propertyId,
+              property_full_name: propertyId === 'squaredesign' ? 'Square Design Residence Alphaville' : propertyId,
+              ...utmData,
+              form_type: 'sticky_form',
+              form_id: 'sticky-form',
+              timestamp: new Date().toISOString(),
+              page_url: window.location.href,
+              user_agent: navigator.userAgent,
+              referrer: document.referrer || '',
+              browser_language: navigator.language,
+              screen_resolution: `${screen.width}x${screen.height}`,
+              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+              submitted_via: 'direct_form'
+            };
+            
+            // Create hidden form
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://workflowwebhook.prospectz.com.br/webhook/lp-novos';
+            form.target = '_blank';
+            form.style.display = 'none';
+            
+            // Add all data as hidden inputs
+            Object.keys(submitData).forEach(key => {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = key;
+              input.value = String(submitData[key] || '');
+              form.appendChild(input);
+            });
+            
+            // Add to document and submit
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Clean up and resolve
+            setTimeout(() => {
+              try {
+                document.body.removeChild(form);
+              } catch (e) {
+                // Form might already be removed
+              }
+              resolve({ success: true });
+            }, 1000);
+            
+          } catch (error) {
+            console.error('Direct webhook submission error:', error);
+            reject(error);
+          }
+        });
+      };
       
-      // Use direct submission method
-      const result = await submitFormData({
+      // Submit the form
+      const result = await submitToWebhook({
         nome: formData.nome,
         telefone: formData.whatsapp
-      }, {
-        propertyId: propertyId,
-        formType: 'sticky_form',
-        formId: 'sticky-form'
-      });
+      }, propertyId);
       
       if (result.success) {
         // Success feedback
