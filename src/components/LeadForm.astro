@@ -123,22 +123,18 @@ const {
         }
         
         try {
-          // Send data to API endpoint (which proxies to webhook)
-          const response = await fetch('/api/webhook', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(submitData)
-          });
+          // Import fallback utility
+          const { submitWithFallback } = await import('/src/utils/webhook-fallback.js');
           
-          const result = await response.json();
+          // Use fallback submission method
+          const result = await submitWithFallback(data, propertyId);
           
-          if (response.ok && result.success) {
+          if (result.success) {
             alert('Obrigado! Em breve entraremos em contato com todas as informações.');
             form.reset();
+            console.log('Form submitted via:', result.method);
           } else {
-            throw new Error(result.error || 'API request failed');
+            throw new Error('Submission failed');
           }
         } catch (error) {
           console.error('Error:', error);

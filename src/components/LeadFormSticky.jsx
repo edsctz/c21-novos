@@ -116,20 +116,19 @@ const LeadFormSticky = () => {
         });
       }
       
-      // Send data to API endpoint (which proxies to webhook)
-      const response = await fetch('/api/webhook', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submitData)
-      });
+      // Import fallback utility
+      const { submitWithFallback } = await import('/src/utils/webhook-fallback.js');
       
-      const result = await response.json();
+      // Use fallback submission method
+      const result = await submitWithFallback({
+        nome: formData.nome,
+        telefone: formData.whatsapp
+      }, propertyId);
       
-      if (response.ok && result.success) {
+      if (result.success) {
         // Success feedback
         alert('Obrigado! Em breve entraremos em contato.');
+        console.log('Form submitted via:', result.method);
         
         // Reset form
         setFormData({
@@ -137,7 +136,7 @@ const LeadFormSticky = () => {
           whatsapp: ''
         });
       } else {
-        throw new Error(result.error || 'API request failed');
+        throw new Error('Submission failed');
       }
       
     } catch (error) {
