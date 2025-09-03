@@ -100,7 +100,9 @@ const { config, content } = Astro.props;
           href={`https://wa.me/${config.contact.whatsapp}?text=${encodeURIComponent(content.finalCta.whatsappText)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
+          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105 whatsapp-button"
+          data-whatsapp-action="schedule_visit"
+          data-whatsapp-location="final_cta"
         >
           📱 Agendar Visita via WhatsApp
         </a>
@@ -121,3 +123,43 @@ const { config, content } = Astro.props;
   <!-- Footer -->
   <Footer config={config} />
 </Layout>
+
+<script>
+  // GTM WhatsApp tracking for Property Page
+  document.addEventListener('DOMContentLoaded', function() {
+    const whatsappButtons = document.querySelectorAll('.whatsapp-button');
+    
+    whatsappButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.getAttribute('data-whatsapp-action') || 'click';
+        const location = this.getAttribute('data-whatsapp-location') || 'unknown';
+        
+        // Fire GTM event
+        if (typeof window.dataLayer !== 'undefined') {
+          window.dataLayer.push({
+            event: 'whatsapp_click',
+            whatsapp_action: action,
+            whatsapp_location: location,
+            whatsapp_url: this.href
+          });
+        }
+        
+        // Also fire gtag event if available
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'whatsapp_click', {
+            event_category: 'WhatsApp',
+            event_label: `${location}_${action}`,
+            value: 1
+          });
+        }
+        
+        console.log('WhatsApp click tracked:', {
+          event: 'whatsapp_click',
+          action: action,
+          location: location,
+          url: this.href
+        });
+      });
+    });
+  });
+</script>

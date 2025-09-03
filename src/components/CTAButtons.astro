@@ -7,7 +7,9 @@
     href="https://wa.me/5511999999999?text=Olá! Quero receber a tabela de preços do Square Design Residence Alphaville."
     target="_blank"
     rel="noopener noreferrer"
-    class="cta-button cta-primary"
+    class="cta-button cta-primary whatsapp-button"
+    data-whatsapp-action="receive_price_table"
+    data-whatsapp-location="cta_buttons"
   >
     📱 Receber Tabela de Preços
   </a>
@@ -19,3 +21,43 @@
     📞 Ligar Agora
   </a>
 </div>
+
+<script>
+  // GTM WhatsApp tracking for CTA buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    const whatsappButtons = document.querySelectorAll('.whatsapp-button');
+    
+    whatsappButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.getAttribute('data-whatsapp-action') || 'click';
+        const location = this.getAttribute('data-whatsapp-location') || 'unknown';
+        
+        // Fire GTM event
+        if (typeof window.dataLayer !== 'undefined') {
+          window.dataLayer.push({
+            event: 'whatsapp_click',
+            whatsapp_action: action,
+            whatsapp_location: location,
+            whatsapp_url: this.href
+          });
+        }
+        
+        // Also fire gtag event if available
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'whatsapp_click', {
+            event_category: 'WhatsApp',
+            event_label: `${location}_${action}`,
+            value: 1
+          });
+        }
+        
+        console.log('WhatsApp click tracked:', {
+          event: 'whatsapp_click',
+          action: action,
+          location: location,
+          url: this.href
+        });
+      });
+    });
+  });
+</script>

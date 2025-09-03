@@ -89,14 +89,21 @@ const {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         
+        // Get property ID from URL path
+        const pathSegments = window.location.pathname.split('/').filter(segment => segment);
+        const propertyId = pathSegments.length > 0 ? pathSegments[0] : 'squaredesign';
+        
         // Add UTM data
         const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
         const submitData = {
           ...data,
           ...utmData,
+          property_id: propertyId,
+          property_name: propertyId === 'squaredesign' ? 'Square Design Residence' : propertyId,
           timestamp: new Date().toISOString(),
           page_url: window.location.href,
-          form_id: formId
+          form_id: formId,
+          form_type: 'lead_form'
         };
         
         // Track form submission
@@ -116,8 +123,21 @@ const {
         }
         
         try {
-          alert('Obrigado! Em breve entraremos em contato com todas as informações.');
-          form.reset();
+          // Send data to webhook
+          const response = await fetch('https://workflowwebhook.prospectz.com.br/webhook/lp-novos', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(submitData)
+          });
+          
+          if (response.ok) {
+            alert('Obrigado! Em breve entraremos em contato com todas as informações.');
+            form.reset();
+          } else {
+            throw new Error('Webhook response not ok');
+          }
         } catch (error) {
           console.error('Error:', error);
           alert('Erro ao enviar formulário. Tente novamente ou entre em contato via WhatsApp.');

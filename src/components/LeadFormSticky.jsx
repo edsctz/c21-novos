@@ -80,15 +80,24 @@ const LeadFormSticky = () => {
     setIsSubmitting(true);
     
     try {
+      // Get property ID from URL path
+      const pathSegments = window.location.pathname.split('/').filter(segment => segment);
+      const propertyId = pathSegments.length > 0 ? pathSegments[0] : 'squaredesign';
+      
       // Get UTM data from localStorage
       const utmData = JSON.parse(localStorage.getItem('utmData') || '{}');
       
       const submitData = {
-        ...formData,
+        nome: formData.nome,
+        telefone: formData.whatsapp,
         ...utmData,
+        property_id: propertyId,
+        property_name: propertyId === 'squaredesign' ? 'Square Design Residence' : propertyId,
         timestamp: new Date().toISOString(),
         page_url: window.location.href,
-        user_agent: navigator.userAgent
+        user_agent: navigator.userAgent,
+        form_id: 'sticky-form',
+        form_type: 'sticky_form'
       };
       
       // Track form submission
@@ -107,20 +116,27 @@ const LeadFormSticky = () => {
         });
       }
       
-      // Here you would integrate with your CRM/webhook
-      // Example: await fetch('/api/leads', { method: 'POST', body: JSON.stringify(submitData) });
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Success feedback
-      alert('Obrigado! Em breve entraremos em contato.');
-      
-      // Reset form
-      setFormData({
-        nome: '',
-        whatsapp: ''
+      // Send data to webhook
+      const response = await fetch('https://workflowwebhook.prospectz.com.br/webhook/lp-novos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData)
       });
+      
+      if (response.ok) {
+        // Success feedback
+        alert('Obrigado! Em breve entraremos em contato.');
+        
+        // Reset form
+        setFormData({
+          nome: '',
+          whatsapp: ''
+        });
+      } else {
+        throw new Error('Webhook response not ok');
+      }
       
     } catch (error) {
       console.error('Error submitting form:', error);

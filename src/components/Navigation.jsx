@@ -133,8 +133,37 @@ const Navigation = () => {
                   href="https://wa.me/5511990111592?text=Olá! Quero receber informações sobre o Square Design Residence Alphaville."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="nav-mobile-whatsapp"
-                  onClick={() => setIsOpen(false)}
+                  className="nav-mobile-whatsapp whatsapp-button"
+                  data-whatsapp-action="get_info"
+                  data-whatsapp-location="navigation_mobile"
+                  onClick={(e) => {
+                    // Track WhatsApp click
+                    if (typeof window.dataLayer !== 'undefined') {
+                      window.dataLayer.push({
+                        event: 'whatsapp_click',
+                        whatsapp_action: 'get_info',
+                        whatsapp_location: 'navigation_mobile',
+                        whatsapp_url: e.target.href
+                      });
+                    }
+                    
+                    if (typeof gtag !== 'undefined') {
+                      gtag('event', 'whatsapp_click', {
+                        event_category: 'WhatsApp',
+                        event_label: 'navigation_mobile_get_info',
+                        value: 1
+                      });
+                    }
+                    
+                    console.log('WhatsApp click tracked:', {
+                      event: 'whatsapp_click',
+                      action: 'get_info',
+                      location: 'navigation_mobile',
+                      url: e.target.href
+                    });
+                    
+                    setIsOpen(false);
+                  }}
                 >
                   📱 Falar no WhatsApp
                 </a>
