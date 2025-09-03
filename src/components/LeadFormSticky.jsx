@@ -116,8 +116,8 @@ const LeadFormSticky = () => {
         });
       }
       
-      // Send data to webhook
-      const response = await fetch('https://workflowwebhook.prospectz.com.br/webhook/lp-novos', {
+      // Send data to API endpoint (which proxies to webhook)
+      const response = await fetch('/api/webhook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,9 @@ const LeadFormSticky = () => {
         body: JSON.stringify(submitData)
       });
       
-      if (response.ok) {
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
         // Success feedback
         alert('Obrigado! Em breve entraremos em contato.');
         
@@ -135,7 +137,7 @@ const LeadFormSticky = () => {
           whatsapp: ''
         });
       } else {
-        throw new Error('Webhook response not ok');
+        throw new Error(result.error || 'API request failed');
       }
       
     } catch (error) {

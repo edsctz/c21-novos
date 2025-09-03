@@ -64,13 +64,11 @@ export function prepareWebhookData(formData, formType = 'lead_form', formId = 'd
 }
 
 /**
- * Send data to webhook
+ * Send data to webhook via API endpoint
  */
 export async function sendToWebhook(data) {
-  const webhookUrl = 'https://workflowwebhook.prospectz.com.br/webhook/lp-novos';
-  
   try {
-    const response = await fetch(webhookUrl, {
+    const response = await fetch('/api/webhook', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -78,11 +76,13 @@ export async function sendToWebhook(data) {
       body: JSON.stringify(data)
     });
     
-    if (!response.ok) {
-      throw new Error(`Webhook responded with status: ${response.status}`);
+    const result = await response.json();
+    
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || `API responded with status: ${response.status}`);
     }
     
-    return { success: true, response };
+    return { success: true, response: result };
   } catch (error) {
     console.error('Webhook submission error:', error);
     throw error;
