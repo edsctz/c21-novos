@@ -1,0 +1,350 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LeadFormSticky from '../../components/LeadFormSticky.jsx';
+---
+
+<Layout 
+  title="Plantas dos Apartamentos - Beyond Residence | Century 21 Alpha"
+  description="Conheça as plantas dos apartamentos do Beyond Residence. Opções de 94m² a 121m² com 3 suítes."
+>
+  <Header propertyId="beyondresidence" />
+  
+  <!-- Plants Header -->
+  <section class="pt-32 pb-16 bg-digital-black">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Plantas dos <span class="text-gold">Apartamentos</span>
+        </h1>
+        <p class="text-xl text-gray-300">
+          Conheça as opções de plantas do Beyond Residence de 94m² a 121m²
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Plants Grid -->
+  <section class="py-16 bg-obsessed-grey">
+    <div class="container">
+      <div id="plantas" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Plant images with descriptions -->
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/43m2.webp"
+            alt="Planta Tipo 43m² - Studio compacto e funcional"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">Tipo 43m²</h3>
+            <p class="text-gray-300 text-sm">Studio • Living integrado • Varanda</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/56m2.webp"
+            alt="Planta Tipo 56m² - 1 suíte com living amplo"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">Tipo 56m²</h3>
+            <p class="text-gray-300 text-sm">1 suíte • Living amplo • Varanda gourmet</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/56m2-salaampliada.webp"
+            alt="Planta 56m² Sala Ampliada - Versão com living expandido"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">56m² Sala Ampliada</h3>
+            <p class="text-gray-300 text-sm">1 suíte • Sala expandida • Integração total</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/75m2.webp"
+            alt="Planta Tipo 75m² - 2 suítes com áreas generosas"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">Tipo 75m²</h3>
+            <p class="text-gray-300 text-sm">2 suítes • Áreas generosas • Lavabo</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/75m2-salaampliada.webp"
+            alt="Planta 75m² Sala Ampliada - Versão com living expandido"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">75m² Sala Ampliada</h3>
+            <p class="text-gray-300 text-sm">2 suítes • Living ampliado • Varanda integrada</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/79m2.webp"
+            alt="Planta Tipo 79m² - 2 suítes mais escritório"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">Tipo 79m²</h3>
+            <p class="text-gray-300 text-sm">2 suítes • Escritório • Home office</p>
+          </div>
+        </div>
+
+        <div class="blueprint-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey border-2 border-digital-black">
+          <img 
+            src="/images/beyondresidence/plantas/79m2-salaampliada.webp"
+            alt="Planta 79m² Sala Ampliada - Versão premium com living expandido"
+            class="w-full h-80 object-contain bg-white transition-transform duration-300 hover:scale-105 p-4"
+            loading="lazy"
+          />
+          <div class="p-6 bg-digital-black">
+            <h3 class="text-white font-bold text-xl mb-2">79m² Sala Ampliada</h3>
+            <p class="text-gray-300 text-sm">2 suítes • Living premium • Closet na master</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-gold">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-digital-black mb-4">
+        Receba Tabela de Preços
+      </h2>
+      <p class="text-xl text-digital-black mb-8 max-w-3xl mx-auto">
+        Solicite a tabela completa de preços e condições especiais de lançamento
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="https://wa.me/5511947176122?text=Olá! Quero receber a tabela de preços do Beyond Residence."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
+        >
+          📱 Receber Tabela via WhatsApp
+        </a>
+        
+        <a 
+          href="/beyondresidence"
+          class="bg-transparent border-2 border-digital-black text-digital-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-digital-black hover:text-relentless-gold transition-all duration-300 hover:scale-105"
+        >
+          ← Voltar para Página Principal
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Full-Screen Modal for Blueprints -->
+  <div id="fullscreen-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden">
+    <!-- Top Bar with Close Button and Counter -->
+    <div class="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-black/80 to-transparent p-4">
+      <div class="flex justify-between items-center">
+        <!-- Blueprint Counter -->
+        <div class="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 text-white font-medium">
+          <span id="current-blueprint">1</span> / <span id="total-blueprints">7</span>
+        </div>
+        
+        <!-- Close Button -->
+        <button 
+          id="close-modal" 
+          class="bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-12 h-12 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300"
+          aria-label="Fechar planta"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Blueprint Container -->
+    <div class="absolute inset-0 flex items-center justify-center p-4 pt-20 pb-16">
+      <!-- Previous Button -->
+      <button 
+        id="prev-blueprint" 
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-14 h-14 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300 z-10"
+        aria-label="Planta anterior"
+      >
+        ‹
+      </button>
+      
+      <!-- Full-Screen Blueprint -->
+      <img 
+        id="fullscreen-blueprint" 
+        src="" 
+        alt="" 
+        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+      />
+      
+      <!-- Next Button -->
+      <button 
+        id="next-blueprint" 
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-relentless-gold/20 rounded-full w-14 h-14 flex items-center justify-center text-white text-2xl font-bold transition-all duration-300 z-10"
+        aria-label="Próxima planta"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- Bottom Bar with Blueprint Description -->
+    <div class="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/80 to-transparent p-4">
+      <div class="text-center">
+        <p id="blueprint-description" class="text-white text-lg font-medium bg-black/40 backdrop-blur-sm rounded-lg px-4 py-2 inline-block max-w-4xl">
+          <!-- Blueprint alt text will be displayed here -->
+        </p>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Hints -->
+    <div class="absolute inset-x-0 bottom-20 text-center text-white/60 text-sm md:hidden">
+      <p class="bg-black/40 backdrop-blur-sm rounded-lg px-3 py-1 inline-block">
+        Toque nas setas ou deslize para navegar
+      </p>
+    </div>
+  </div>
+
+  <LeadFormSticky client:load propertyId="beyondresidence" />
+  <Footer />
+</Layout>
+
+<script>
+  // Full-Screen Blueprint Viewer Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const blueprintItems = document.querySelectorAll('.blueprint-item img');
+    const modal = document.getElementById('fullscreen-modal');
+    const fullscreenBlueprint = document.getElementById('fullscreen-blueprint');
+    const closeModal = document.getElementById('close-modal');
+    const prevButton = document.getElementById('prev-blueprint');
+    const nextButton = document.getElementById('next-blueprint');
+    const currentBlueprintSpan = document.getElementById('current-blueprint');
+    const totalBlueprintsSpan = document.getElementById('total-blueprints');
+    const blueprintDescription = document.getElementById('blueprint-description');
+    
+    let currentBlueprintIndex = 0;
+    const blueprints = Array.from(blueprintItems);
+    
+    // Set total blueprints count
+    if (totalBlueprintsSpan) {
+      totalBlueprintsSpan.textContent = blueprints.length.toString();
+    }
+    
+    // Open modal when clicking on blueprint
+    blueprints.forEach((img, index) => {
+      img.addEventListener('click', function() {
+        currentBlueprintIndex = index;
+        showBlueprint(currentBlueprintIndex);
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      });
+    });
+    
+    // Close modal
+    function closeModalFunction() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    closeModal.addEventListener('click', closeModalFunction);
+    
+    // Close modal when clicking outside the blueprint
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModalFunction();
+      }
+    });
+    
+    // Show specific blueprint
+    function showBlueprint(index: number) {
+      const img = blueprints[index] as HTMLImageElement;
+      const fullscreenImg = fullscreenBlueprint as HTMLImageElement;
+      if (fullscreenImg && img) {
+        fullscreenImg.src = img.src;
+        fullscreenImg.alt = img.alt;
+      }
+      if (blueprintDescription && img) {
+        blueprintDescription.textContent = img.alt;
+      }
+      if (currentBlueprintSpan) {
+        currentBlueprintSpan.textContent = (index + 1).toString();
+      }
+    }
+    
+    // Previous blueprint
+    prevButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      currentBlueprintIndex = currentBlueprintIndex > 0 ? currentBlueprintIndex - 1 : blueprints.length - 1;
+      showBlueprint(currentBlueprintIndex);
+    });
+    
+    // Next blueprint
+    nextButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      currentBlueprintIndex = currentBlueprintIndex < blueprints.length - 1 ? currentBlueprintIndex + 1 : 0;
+      showBlueprint(currentBlueprintIndex);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('hidden')) {
+        switch(e.key) {
+          case 'Escape':
+            closeModalFunction();
+            break;
+          case 'ArrowLeft':
+            prevButton.click();
+            break;
+          case 'ArrowRight':
+            nextButton.click();
+            break;
+        }
+      }
+    });
+
+    // Touch/Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    modal.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next blueprint
+          nextButton.click();
+        } else {
+          // Swipe right - previous blueprint
+          prevButton.click();
+        }
+      }
+    }
+    
+  });
+</script>

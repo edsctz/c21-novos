@@ -1,136 +1,138 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import LeadForm from '../../components/LeadForm.astro';
-import LeadFormSticky from '../../components/LeadFormSticky.jsx';
 import Footer from '../../components/Footer.astro';
+import LeadFormSticky from '../../components/LeadFormSticky.jsx';
 ---
 
 <Layout 
-  title="Galeria de Fotos - Square Design Residence Alphaville | Century 21 Alpha"
-  description="Veja as fotos do Square Design Residence Alphaville. Apartamentos de 3 suítes, área de lazer completa com raia olímpica, coworking e muito mais."
+  title="Galeria de Fotos - Beyond Residence | Century 21 Alpha"
+  description="Conheça as áreas de lazer e decorados do Beyond Residence Alphaville. Fotos em alta qualidade do empreendimento."
 >
-  <!-- Header Navigation -->
-  <Header propertyId="squaredesign" />
+  <Header propertyId="beyondresidence" />
   
-  <!-- Gallery Section -->
-  <section class="py-16 bg-digital-black">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
-          Galeria de <span class="text-relentless-gold">Fotos</span>
+  <!-- Gallery Header -->
+  <section class="pt-32 pb-16 bg-digital-black">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Galeria de <span class="text-gold">Fotos</span>
         </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          Conheça cada detalhe do Square Design Residence Alphaville
+        <p class="text-xl text-gray-300">
+          Conheça as áreas de lazer e os apartamentos decorados do Beyond Residence
         </p>
       </div>
-
-      <!-- Photo Gallery -->
+    </div>
+  </section>
+  
+  <!-- Gallery Grid -->
+  <section class="py-16 bg-obsessed-grey">
+    <div class="container">
       <div id="galeria" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Gallery Images -->
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_47_Decorado_Living_R05_compressed.webp"
-            alt="Living decorado com móveis planejados - Square Design Residence"
+            src="/images/beyondresidence/galeria/Implantacao.webp"
+            alt="Implantação do Beyond Residence - Vista geral do empreendimento"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_04_Portaria_R05_compressed.webp"
-            alt="Portaria moderna com design sofisticado - Square Design Residence"
+            src="/images/beyondresidence/galeria/Piscina.webp"
+            alt="Piscina adulto com área de lazer completa - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_03_Fachada_Detalhe_R04 (1)_compressed.webp"
-            alt="Detalhe da fachada moderna - Square Design Residence"
+            src="/images/beyondresidence/galeria/PoolIndoor.webp"
+            alt="Piscina coberta aquecida - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/06_RSFMELV1_ST1_R01_Piscina_Adulto_C4_compressed.webp"
-            alt="Piscina adulto com área de lazer - Square Design Residence"
+            src="/images/beyondresidence/galeria/Academia-Rooftop.webp"
+            alt="Academia completa no rooftop com vista panorâmica - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_07_Piscina_Adulto_A_R05 (Golden hour)_compressed.webp"
-            alt="Piscina adulto no golden hour - Square Design Residence"
+            src="/images/beyondresidence/galeria/EspaçoGourmet.webp"
+            alt="Espaço gourmet com churrasqueira e área de convivência - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_05_Piscina_Infantil_R04_compressed.webp"
-            alt="Piscina infantil com área recreativa - Square Design Residence"
+            src="/images/beyondresidence/galeria/Churrasqueira_Detalhe.webp"
+            alt="Churrasqueira com acabamento premium - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_13_Ofuro_R04 (1)_compressed.webp"
-            alt="Ofurô relaxante na área de spa - Square Design Residence"
+            src="/images/beyondresidence/galeria/FireLounge.webp"
+            alt="Fire Lounge com lareira e ambiente aconchegante - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_08_Espaco_Gourmet_R03_compressed.webp"
-            alt="Espaço gourmet completo para confraternizações - Square Design Residence"
+            src="/images/beyondresidence/galeria/Coworking.webp"
+            alt="Coworking completo para trabalho remoto - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_09_Fogo_de_Chao_R02_compressed.webp"
-            alt="Fogo de chão para churrascos - Square Design Residence"
+            src="/images/beyondresidence/galeria/Brinquedoteca.webp"
+            alt="Brinquedoteca equipada para crianças - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_ST_10_Quadra_Recreativa_R04 (1)_compressed.webp"
-            alt="Quadra recreativa para esportes - Square Design Residence"
+            src="/images/beyondresidence/galeria/EspaçoGamer.webp"
+            alt="Espaço gamer com equipamentos de última geração - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/12_RSFMELV1_ST1_R05_PortCochere (1)_compressed.webp"
-            alt="Port Cochère elegante na entrada - Square Design Residence"
+            src="/images/beyondresidence/galeria/EspaçoBeleza.webp"
+            alt="Espaço beleza para cuidados pessoais - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
 
-        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-obsessed-grey">
+        <div class="gallery-item cursor-pointer overflow-hidden rounded-xl bg-digital-medium-grey">
           <img 
-            src="/images/squaredesign/galeria/SQU_S01_C07_Escultura_5K_compressed.webp"
-            alt="Escultura artística no hall de entrada - Square Design Residence"
+            src="/images/beyondresidence/galeria/PetClub.webp"
+            alt="Pet Club com área dedicada para pets - Beyond Residence"
             class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
@@ -138,7 +140,37 @@ import Footer from '../../components/Footer.astro';
       </div>
     </div>
   </section>
-
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-gold">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-digital-black mb-4">
+        Agende Sua Visita
+      </h2>
+      <p class="text-xl text-digital-black mb-8 max-w-3xl mx-auto">
+        Venha conhecer pessoalmente o Beyond Residence e todas as suas facilidades
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="https://wa.me/5511947176122?text=Olá! Quero agendar uma visita ao Beyond Residence."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
+        >
+          📱 Agendar Visita via WhatsApp
+        </a>
+        
+        <a 
+          href="/beyondresidence"
+          class="bg-transparent border-2 border-digital-black text-digital-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-digital-black hover:text-relentless-gold transition-all duration-300 hover:scale-105"
+        >
+          ← Voltar para Página Principal
+        </a>
+      </div>
+    </div>
+  </section>
+  
   <!-- Full-Screen Modal -->
   <div id="fullscreen-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden">
     <!-- Top Bar with Close Button and Counter -->
@@ -206,50 +238,7 @@ import Footer from '../../components/Footer.astro';
     </div>
   </div>
 
-  <!-- Lead Form Section -->
-  <LeadForm 
-    title="Receba Tabela de Preços e Plantas"
-    description="Condições especiais de pré-lançamento. Preencha o formulário e receba todas as informações."
-    buttonText="Receber Informações Completas"
-    trackingLabel="Gallery Page Form Submission"
-    propertyId="squaredesign"
-  />
-
-  <!-- CTA Final -->
-  <section class="py-16 bg-gradient-gold">
-    <div class="container text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-digital-black mb-4">
-        Agende Sua Visita
-      </h2>
-      <p class="text-xl text-digital-black mb-8 max-w-3xl mx-auto">
-        Venha conhecer pessoalmente todos os detalhes que fazem do Square Design Residence 
-        <strong>o melhor investimento em Alphaville.</strong>
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a 
-          href="https://wa.me/5511990111592?text=Olá! Vi a galeria de fotos e quero agendar uma visita ao Square Design Residence Alphaville."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
-        >
-          📱 Agendar Visita via WhatsApp
-        </a>
-        
-        <a 
-          href="tel:+5511990111592"
-          class="bg-transparent border-2 border-digital-black text-digital-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-digital-black hover:text-relentless-gold transition-all duration-300 hover:scale-105"
-        >
-          📞 Ligar Agora
-        </a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Sticky Lead Form (Mobile) -->
-  <LeadFormSticky client:load propertyId="squaredesign" />
-  
-  <!-- Footer -->
+  <LeadFormSticky client:load propertyId="beyondresidence" />
   <Footer />
 </Layout>
 
@@ -270,7 +259,9 @@ import Footer from '../../components/Footer.astro';
     const images = Array.from(galleryItems);
     
     // Set total images count
-    totalImagesSpan.textContent = images.length;
+    if (totalImagesSpan) {
+      totalImagesSpan.textContent = images.length.toString();
+    }
     
     // Open modal when clicking on image
     images.forEach((img, index) => {
@@ -298,12 +289,19 @@ import Footer from '../../components/Footer.astro';
     });
     
     // Show specific image
-    function showImage(index) {
+    function showImage(index: number) {
       const img = images[index] as HTMLImageElement;
-      fullscreenImage.src = img.src.replace('w=800', 'w=1200'); // Higher resolution for full-screen
-      fullscreenImage.alt = img.alt;
-      imageDescription.textContent = img.alt;
-      currentImageSpan.textContent = (index + 1).toString();
+      const fullscreenImg = fullscreenImage as HTMLImageElement;
+      if (fullscreenImg && img) {
+        fullscreenImg.src = img.src;
+        fullscreenImg.alt = img.alt;
+      }
+      if (imageDescription && img) {
+        imageDescription.textContent = img.alt;
+      }
+      if (currentImageSpan) {
+        currentImageSpan.textContent = (index + 1).toString();
+      }
     }
     
     // Previous image

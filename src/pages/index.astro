@@ -1,4 +1,127 @@
 ---
-// Permanent redirect to /squaredesign
-return Astro.redirect('/squaredesign', 301);
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 ---
+
+<Layout 
+  title="Lançamentos Imobiliários Alphaville | Century 21 Alpha"
+  description="Conheça os lançamentos imobiliários da Century 21 Alpha em Alphaville. Apartamentos de alto padrão com infraestrutura completa."
+>
+  <!-- Hero Section -->
+  <section class="min-h-screen bg-digital-black flex items-center py-20">
+    <div class="container">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <img 
+            src="https://www.century21.com.br/assets/logo-c21-horizontal.svg" 
+            alt="Century 21 Alpha" 
+            class="h-16 mx-auto mb-8"
+          />
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Lançamentos <span class="text-gold">Imobiliários</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Escolha o empreendimento ideal para você em Alphaville
+          </p>
+        </div>
+        
+        <!-- Property Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Square Design Card -->
+          <a 
+            href="/squaredesign"
+            class="group relative bg-obsessed-grey rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-relentless-gold"
+          >
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img 
+                src="/images/squaredesign/hero/HeroBack.webp"
+                onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                alt="Square Design Residence"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-digital-black via-digital-black/60 to-transparent"></div>
+            </div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-8">
+              <h2 class="text-3xl font-bold text-white mb-3 group-hover:text-gold transition-colors">
+                Square Design Residence
+              </h2>
+              <p class="text-gray-300 mb-4">
+                3 suítes • 94 a 121m² • Alphaville
+              </p>
+              <div class="flex items-center text-relentless-gold font-semibold">
+                <span>Ver Empreendimento</span>
+                <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+          
+          <!-- Beyond Residence Card -->
+          <a 
+            href="/beyondresidence"
+            class="group relative bg-obsessed-grey rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-relentless-gold"
+          >
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img 
+                src="/images/beyondresidence/hero/HeroBack.webp"
+                onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                alt="Beyond Residence"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-digital-black via-digital-black/60 to-transparent"></div>
+            </div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-8">
+              <h2 class="text-3xl font-bold text-white mb-3 group-hover:text-gold transition-colors">
+                Beyond Residence
+              </h2>
+              <p class="text-gray-300 mb-4">
+                3 suítes • 94 a 121m² • Alphaville
+              </p>
+              <div class="flex items-center text-relentless-gold font-semibold">
+                <span>Ver Empreendimento</span>
+                <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="mt-16 text-center">
+          <p class="text-gray-400 mb-4">
+            Dúvidas? Entre em contato com nossos consultores
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os lançamentos."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-relentless-gold text-digital-black font-bold py-3 px-6 rounded-lg text-lg hover:bg-gold transition-all duration-300 hover:scale-105"
+            >
+              📱 WhatsApp
+            </a>
+            <a 
+              href="tel:+5511999999999"
+              class="bg-transparent border-2 border-relentless-gold text-relentless-gold font-bold py-3 px-6 rounded-lg text-lg hover:bg-relentless-gold hover:text-digital-black transition-all duration-300 hover:scale-105"
+            >
+              📞 Ligar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .text-gold {
+    color: var(--relentless-gold);
+  }
+</style>

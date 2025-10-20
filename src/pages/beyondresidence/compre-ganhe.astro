@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LeadFormSticky from '../../components/LeadFormSticky.jsx';
+---
+
+<Layout 
+  title="Campanha Compre e Ganhe - Beyond Residence | Century 21 Alpha"
+  description="Aproveite as condições especiais da campanha Compre e Ganhe do Beyond Residence Alphaville."
+>
+  <Header propertyId="beyondresidence" />
+  
+  <!-- Campaign Header -->
+  <section class="pt-32 pb-16 bg-digital-black">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Campanha <span class="text-gold">Compre e Ganhe</span>
+        </h1>
+        <p class="text-xl text-gray-300">
+          Condições especiais e vantagens exclusivas para você
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Campaign Content -->
+  <section class="py-16 bg-obsessed-grey">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-digital-medium-grey rounded-xl overflow-hidden aspect-video flex items-center justify-center p-8">
+          <p class="text-gray-400 text-center">
+            Adicione o banner da campanha em:<br/>
+            <code class="text-xs">public/images/beyondresidence/compre-ganhe/</code>
+          </p>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <h2 class="text-3xl font-bold text-white mb-6">
+            Aproveite as Condições Especiais
+          </h2>
+          <p class="text-xl text-gray-300 mb-8">
+            Entre em contato e conheça todas as vantagens desta campanha exclusiva
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-gold">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-digital-black mb-4">
+        Saiba Mais Sobre a Campanha
+      </h2>
+      <p class="text-xl text-digital-black mb-8 max-w-3xl mx-auto">
+        Fale com nossos consultores e garanta as melhores condições
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="https://wa.me/5511947176122?text=Olá! Quero saber mais sobre a campanha Compre e Ganhe do Beyond Residence."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-digital-black text-relentless-gold font-bold py-4 px-8 rounded-lg text-lg hover:bg-obsessed-grey transition-all duration-300 hover:scale-105"
+        >
+          📱 Falar com Consultor via WhatsApp
+        </a>
+        
+        <a 
+          href="/beyondresidence"
+          class="bg-transparent border-2 border-digital-black text-digital-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-digital-black hover:text-relentless-gold transition-all duration-300 hover:scale-105"
+        >
+          ← Voltar para Página Principal
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <LeadFormSticky client:load propertyId="beyondresidence" />
+  <Footer />
+</Layout>

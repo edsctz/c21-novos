@@ -83,9 +83,13 @@ export const squareDesignConfig: PropertyConfig = {
   }
 };
 
+// Import Beyond Residence config
+import { config as beyondResidenceConfig } from '../properties/beyondresidence/config';
+
 // Property registry - add new properties here
 export const PROPERTIES: Record<string, PropertyConfig> = {
-  squaredesign: squareDesignConfig
+  squaredesign: squareDesignConfig,
+  beyondresidence: beyondResidenceConfig
 };
 
 // Helper function to get property config

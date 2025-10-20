@@ -1,5 +1,17 @@
 ---
 import Navigation from './Navigation.jsx';
+import { getPropertyConfig } from '../config/properties';
+
+interface Props {
+  propertyId?: string;
+}
+
+const { propertyId = 'squaredesign' } = Astro.props;
+const propertyConfig = getPropertyConfig(propertyId);
+
+// Fallback values if config not found
+const propertyName = propertyConfig?.name || 'Square Design';
+const propertyFullName = propertyConfig?.fullName || 'Square Design Residence Alphaville';
 ---
 
 <header class="header">
@@ -7,16 +19,16 @@ import Navigation from './Navigation.jsx';
     <div class="header-content">
       <!-- Logo -->
       <div class="logo">
-        <a href="/squaredesign" class="logo-link">
+        <a href={`/${propertyId}`} class="logo-link">
           <div class="logo-text">
-            <span class="logo-main">Square Design</span>
-            <span class="logo-sub">Residence Alphaville</span>
+            <span class="logo-main">{propertyName}</span>
+            <span class="logo-sub">{propertyFullName.replace(propertyName, '').trim()}</span>
           </div>
         </a>
       </div>
       
       <!-- Navigation -->
-      <Navigation client:load />
+      <Navigation client:load propertyId={propertyId} />
     </div>
   </div>
 </header>

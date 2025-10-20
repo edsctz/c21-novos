@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const Navigation = () => {
+const Navigation = ({ propertyId = 'squaredesign' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Close menu when clicking outside
@@ -41,10 +41,10 @@ const Navigation = () => {
   }, [isOpen]);
 
   const navigationLinks = [
-    { href: '/squaredesign', label: 'Sobre o Empreendimento' },
-    { href: '/squaredesign/galeria', label: 'Galeria de Fotos' },
-    { href: '/squaredesign/plantas', label: 'Plantas' },
-    { href: '/squaredesign/compre-ganhe', label: 'Compre e Ganhe', isHighlighted: true }
+    { href: `/${propertyId}`, label: 'Sobre o Empreendimento' },
+    { href: `/${propertyId}/galeria`, label: 'Galeria de Fotos' },
+    { href: `/${propertyId}/plantas`, label: 'Plantas' },
+    { href: `/${propertyId}/compre-ganhe`, label: 'Compre e Ganhe', isHighlighted: true }
   ];
 
   const handleLinkClick = (href) => {
