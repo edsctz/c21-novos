@@ -24,6 +24,31 @@ export interface PropertyConfig {
   };
   features: string[];
   amenities: string[];
+  propertySpecs?: {
+    apartment: {
+      typologies: string;
+      bedrooms: string;
+      parking: string;
+      balcony?: string;
+      floors?: string;
+    };
+    building: {
+      address: string;
+      neighborhood: string;
+      city: string;
+      leisureItems: string;
+      nearbySchools?: string;
+    };
+    leisure: Array<{
+      title: string;
+      subtitle: string;
+      icon: string;
+    }>;
+    highlights: Array<{
+      title: string;
+      subtitle: string;
+    }>;
+  };
   gtmId?: string;
   seo: {
     title: string;

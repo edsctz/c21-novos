@@ -3,7 +3,7 @@ export const content = {
   hero: {
     headline: 'Beyond Residence',
     subheadline: 'Alphaville',
-    description: 'Apartamentos de 3 suítes de 94 a 121m² no coração de Alphaville',
+    description: 'Apartamentos de 43 a 79m² no coração de Alphaville',
     cta: 'Receber Tabela de Preços'
   },
   
@@ -12,22 +12,22 @@ export const content = {
     items: [
       {
         icon: '🏠',
-        title: '3 Suítes',
-        description: 'Apartamentos espaçosos com 3 suítes completas'
+        title: '1 a 3 Quartos',
+        description: 'Apartamentos espaçosos com opção de living ampliado'
       },
       {
         icon: '📐',
-        title: '94 a 121m²',
-        description: 'Área privativa generosa para toda família'
+        title: '43 a 79m²',
+        description: 'Todos com infraestrutura para ar condicionado'
       },
       {
         icon: '🚗',
-        title: '2 a 3 Vagas',
+        title: '1 e 2 Vagas',
         description: 'Garagem coberta com segurança 24h'
       },
       {
         icon: '🏢',
-        title: '120 Unidades',
+        title: '372 Unidades',
         description: 'Empreendimento exclusivo e reservado'
       }
     ]

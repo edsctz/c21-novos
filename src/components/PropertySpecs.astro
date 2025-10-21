@@ -1,5 +1,19 @@
 ---
-// Property Specifications Component
+// Property Specifications Component - Dynamic Version
+import { getPropertyConfig } from '../config/properties';
+
+interface Props {
+  propertyId: string;
+}
+
+const { propertyId } = Astro.props;
+const config = getPropertyConfig(propertyId);
+
+if (!config || !config.propertySpecs) {
+  throw new Error(`PropertySpecs not configured for property: ${propertyId}`);
+}
+
+const specs = config.propertySpecs;
 ---
 
 <section class="py-16 bg-digital-black" id="especificacoes">
@@ -28,24 +42,28 @@
         <div class="space-y-4">
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Tipologias</span>
-            <span class="text-white font-semibold">94m² a 121m²</span>
+            <span class="text-white font-semibold">{specs.apartment.typologies}</span>
           </div>
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Quartos</span>
-            <span class="text-white font-semibold">3 suítes</span>
+            <span class="text-white font-semibold">{specs.apartment.bedrooms}</span>
           </div>
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Vagas de Garagem</span>
-            <span class="text-white font-semibold">2 a 3 por apartamento</span>
+            <span class="text-white font-semibold">{specs.apartment.parking}</span>
           </div>
-          <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
-            <span class="text-gray-300">Varanda</span>
-            <span class="text-white font-semibold">Gourmet</span>
-          </div>
-          <div class="flex justify-between items-center py-3">
-            <span class="text-gray-300">Andares</span>
-            <span class="text-white font-semibold">45 andares - 6 por Andar</span>
-          </div>
+          {specs.apartment.balcony && (
+            <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
+              <span class="text-gray-300">Varanda</span>
+              <span class="text-white font-semibold">{specs.apartment.balcony}</span>
+            </div>
+          )}
+          {specs.apartment.floors && (
+            <div class="flex justify-between items-center py-3">
+              <span class="text-gray-300">Andares</span>
+              <span class="text-white font-semibold">{specs.apartment.floors}</span>
+            </div>
+          )}
         </div>
       </div>
       
@@ -63,24 +81,26 @@
         <div class="space-y-4">
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Endereço</span>
-            <span class="text-white font-semibold">Av. Verteville 300</span>
+            <span class="text-white font-semibold">{specs.building.address}</span>
           </div>
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Bairro</span>
-            <span class="text-white font-semibold">18 do Forte</span>
+            <span class="text-white font-semibold">{specs.building.neighborhood}</span>
           </div>
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Cidade</span>
-            <span class="text-white font-semibold">Barueri/SP</span>
+            <span class="text-white font-semibold">{specs.building.city}</span>
           </div>
           <div class="flex justify-between items-center py-3 border-b border-digital-medium-grey">
             <span class="text-gray-300">Itens de Lazer</span>
-            <span class="text-white font-semibold">Mais de 15+</span>
+            <span class="text-white font-semibold">{specs.building.leisureItems}</span>
           </div>
-          <div class="flex justify-between items-center py-3">
-            <span class="text-gray-300">Escolas Próximas</span>
-            <span class="text-white font-semibold">Escola Internacional, Unip/Objetivo</span>
-          </div>
+          {specs.building.nearbySchools && (
+            <div class="flex justify-between items-center py-3">
+              <span class="text-gray-300">Escolas Próximas</span>
+              <span class="text-white font-semibold">{specs.building.nearbySchools}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -92,90 +112,22 @@
           Lazer <span class="text-relentless-gold">Completo</span>
         </h3>
         <p class="text-lg text-gray-300">
-          Mais de 15 opções de lazer para toda a família
+          {specs.building.leisureItems} opções de lazer para toda a família
         </p>
       </div>
       
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M2 16v2c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2H2zm1.5-9c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5S5.8 8.5 5 8.5 3.5 7.8 3.5 7zM5 12c.8 0 1.5-.7 1.5-1.5S5.8 9 5 9s-1.5.7-1.5 1.5S4.2 12 5 12z"/>
-            </svg>
+        {specs.leisure.map((item) => (
+          <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
+            <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
+                <path d={item.icon}/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold mb-2">{item.title}</h4>
+            <p class="text-gray-400 text-sm">{item.subtitle}</p>
           </div>
-          <h4 class="text-white font-semibold mb-2">Piscina</h4>
-          <p class="text-gray-400 text-sm">Adulto e Infantil</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Coworking</h4>
-          <p class="text-gray-400 text-sm">Espaço moderno</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Salão de Festas</h4>
-          <p class="text-gray-400 text-sm">Para eventos</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Fitness</h4>
-          <p class="text-gray-400 text-sm">Academia</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Playground</h4>
-          <p class="text-gray-400 text-sm">Para crianças</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4.5 11h-2V9H1v6h1.5v-2.5h2V15H6V9H4.5v2zm2.5-.5h1.5V9H6.5v6H8v-2.5h1.5v2.5H11V9H9.5v1.5zm5-1.5H10v6h1.5v-2h2c.8 0 1.5-.7 1.5-1.5v-1c0-.8-.7-1.5-1.5-1.5zm0 2.5h-2v-1h2v1z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Delivery Point</h4>
-          <p class="text-gray-400 text-sm">24h</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Quadra Poliesportiva</h4>
-          <p class="text-gray-400 text-sm">Esportes</p>
-        </div>
-        
-        <div class="bg-obsessed-grey rounded-xl p-6 text-center border border-digital-medium-grey hover:border-relentless-gold transition-colors duration-300">
-          <div class="w-12 h-12 bg-relentless-gold rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-digital-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9.31 6.71c-.39.39-.39 1.02 0 1.41L13.19 12l-3.88 3.88c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z"/>
-            </svg>
-          </div>
-          <h4 class="text-white font-semibold mb-2">Beach Tennis</h4>
-          <p class="text-gray-400 text-sm">Esportes</p>
-        </div>
+        ))}
       </div>
     </div>
     
@@ -185,22 +137,12 @@
         Diferenciais Exclusivos
       </h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-digital-black">
-          <div class="text-2xl font-bold mb-2">24h</div>
-          <div class="text-sm">Portaria</div>
-        </div>
-        <div class="text-digital-black">
-          <div class="text-2xl font-bold mb-2">Comodidade</div>
-          <div class="text-sm">Bicicletário</div>
-        </div>
-        <div class="text-digital-black">
-          <div class="text-2xl font-bold mb-2">Car</div>
-          <div class="text-sm">Wash</div>
-        </div>
-        <div class="text-digital-black">
-          <div class="text-2xl font-bold mb-2">Mini</div>
-          <div class="text-sm">Market</div>
-        </div>
+        {specs.highlights.map((highlight) => (
+          <div class="text-digital-black">
+            <div class="text-2xl font-bold mb-2">{highlight.title}</div>
+            <div class="text-sm">{highlight.subtitle}</div>
+          </div>
+        ))}
       </div>
     </div>
   </div>
